@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "hackoss"
+    },
+    "hackoss": {
+      "applicationId": "R9YLQWdhTbsAMThrU0a1y9yhS4LUCuNtmXZySI26"
+    }
+  }
+}

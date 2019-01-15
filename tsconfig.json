@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "outDir": "cloud/",
+    "sourceMap": false,
+    "rootDir": "src",
+    "target": "es6"
+  },
+  "compileOnSave": true,
+  "exclude": [
+  ]
+}
