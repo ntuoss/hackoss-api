@@ -5,7 +5,7 @@ import { publishRouter } from './routes/publish.routes';
 declare const app: express.Application;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const router = express.Router();
 

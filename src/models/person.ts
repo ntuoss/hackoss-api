@@ -3,5 +3,5 @@ export class Person {
   about: string;
   githubUrl: string;
   websiteUrl: string;
-  avatar: string;
+  avatarUrl: string;
 }

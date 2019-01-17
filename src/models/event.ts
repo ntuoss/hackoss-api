@@ -1,7 +1,5 @@
 import { Person } from "./person";
 import { Artwork } from "./artwork";
-import { Prerequisite } from "./prerequisite";
-import { Dependency } from "./dependency";
 import { Location } from "./location";
 
 export class Event {
@@ -24,4 +22,17 @@ export class Event {
   status: EventStatus;
 }
 
+export class Dependency {
+  label: string;
+  specification: string;
+  referenceUrl: string;
+}
+
+export class Prerequisite {
+  label: string;
+  proficiency: Proficiency;
+  referenceUrl: string;
+}
+
+export type Proficiency = 'Basic' | 'Intermediate' | 'Advanced';
 export type EventStatus = 'Pending' | 'Cancelled' | 'Done';

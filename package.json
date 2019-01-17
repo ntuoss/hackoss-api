@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "build": "npm run lint && rm -r cloud/* && tsc && cp package.json cloud/package.json",
+    "clean": "rm -rf cloud && rm -rf public && mkdir cloud && mkdir public",
+    "build": "npm run lint && npm run clean && tsc && cp package.json cloud/package.json",
     "deploy": "npm run build && b4a deploy"
   },
   "dependencies": {
@@ -13,12 +14,12 @@
     "@types/express": "^4.16.0",
     "@types/lodash": "^4.14.119",
     "express": "^4.16.4",
-    "firebase": "^5.5.3"
+    "firebase": "^5.7.3"
   },
   "devDependencies": {
-    "typescript": "~2.7.2",
+    "typescript": "~3.2.2",
     "@types/node": "~10.12.18",
-    "ts-node": "~5.0.1",
-    "tslint": "~5.9.1"
+    "ts-node": "~7.0.1",
+    "tslint": "~5.12.1"
   }
 }
