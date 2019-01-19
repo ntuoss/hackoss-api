@@ -1,13 +1,16 @@
+import { EventsRepository } from 'hackoss';
+import { er } from "../app";
+
 export class PublishService {
 
-    publishToFacebook() {
+    constructor(private eventsRepository: EventsRepository) { }
 
-    }
-
-    publishToEventbrite() {
-        
+    async publish(eventId: string, platforms: Platform[]) {
+        const event = await this.eventsRepository.getEvent(eventId);
+        return event;
     }
 
 }
 
-export const publishService = new PublishService();
+export const publishService = new PublishService(er);
+export type Platform = 'facebook' | 'eventbrite';
