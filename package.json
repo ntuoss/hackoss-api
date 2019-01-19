@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "clean": "rm -rf cloud && rm -rf public && mkdir cloud && mkdir public",
-    "build": "npm run lint && npm run clean && tsc --skipLibCheck && cp package.json cloud/package.json",
-    "deploy": "npm run build && b4a deploy"
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "npm run lint && npm run clean && tsc --skipLibCheck",
+    "postinstall": "npm run build",
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "@types/express": "^4.16.0",

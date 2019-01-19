@@ -3,7 +3,7 @@
     "lib": ["es6"],
     "module": "commonjs",
     "noImplicitReturns": true,
-    "outDir": "cloud/",
+    "outDir": "dist/",
     "sourceMap": false,
     "rootDir": "src",
     "target": "es6"
