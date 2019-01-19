@@ -1,16 +1,8 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
-import { environment } from './environments/environment';
-import { FirebaseRepository, PeopleRepository, LocationsRepository, EventsRepository } from 'hackoss';
 import { Platform, publishService } from './services/publish.service';
 
 const PORT = process.env.PORT || 5000;
-
-// singleton instances
-export const fr = new FirebaseRepository(environment.firebase);
-export const pr = new PeopleRepository(fr);
-export const lr = new LocationsRepository(fr);
-export const er = new EventsRepository(fr, pr, lr);
 
 const app = express();
 app.use(bodyParser.json());

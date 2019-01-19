@@ -1,5 +1,5 @@
-import { EventsRepository } from 'hackoss';
-import { er } from "../app";
+import { EventsRepository } from "hackoss";
+import { er } from "./services";
 
 export class PublishService {
 
