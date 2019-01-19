@@ -4,14 +4,15 @@ import { environment } from './environments/environment';
 import { FirebaseRepository, PeopleRepository, LocationsRepository, EventsRepository } from 'hackoss';
 import { Platform, publishService } from './services/publish.service';
 
+const PORT = process.env.PORT || 5000;
+
 // singleton instances
 export const fr = new FirebaseRepository(environment.firebase);
 export const pr = new PeopleRepository(fr);
 export const lr = new LocationsRepository(fr);
 export const er = new EventsRepository(fr, pr, lr);
 
-declare const app: express.Application;
-
+const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -28,3 +29,5 @@ router.post('/publish', (req, res) => {
 });
 
 app.use('/api', router);
+
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
