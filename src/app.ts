@@ -22,10 +22,10 @@ router.get('/', (req, res) => {
   res.send("HackOSS API at your service. Don't get any funny ideas.");
 });
 
-router.post('/publish', (req, res) => {
+router.post('/publish', async (req, res) => {
   const eventId: string = req.body.eventId;
   const platforms: Platform[] = req.body.platforms;
-  res.send(publishService.publish(eventId, platforms));
+  res.send(await publishService.publish(eventId, platforms));
 });
 
 app.use('/api', router);
