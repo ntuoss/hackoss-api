@@ -6,7 +6,10 @@
     "outDir": "dist/",
     "sourceMap": false,
     "rootDir": "src",
-    "target": "es6"
+    "target": "es6",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "compileOnSave": true,
   "exclude": [
