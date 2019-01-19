@@ -12,7 +12,7 @@
     "@types/express": "^4.16.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "hackoss": "^0.2.6",
+    "hackoss": "^0.2.8",
     "prismic-javascript": "^2.0.1"
   },
   "devDependencies": {
