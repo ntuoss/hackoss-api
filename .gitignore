@@ -1,10 +1,11 @@
 # compiled output
-/cloud
-/public
+/dist
 
 # dependencies
 /node_modules
 
-src/environment\.ts
+# os files
+.DS_Store
 
-dist/
+# env files
+\.env
