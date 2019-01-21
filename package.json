@@ -7,7 +7,7 @@
     "build": "npm run lint && npm run clean && tsc",
     "postinstall": "npm run build",
     "start": "npm run build && node -r dotenv/config dist/app.js",
-    "deploy": "git push heroku release:master"
+    "deploy": "git push heroku master"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
