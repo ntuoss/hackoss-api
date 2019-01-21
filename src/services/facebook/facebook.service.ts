@@ -7,7 +7,8 @@ export class FacebookService extends PlatformService {
         return super.canPublish(event) && event.facebookUrl === undefined;
     }
 
-    publish(event: Event) {
+    // TODO: implement facebook event publication
+    async publish(event: Event) {
         return undefined;
     }
 }

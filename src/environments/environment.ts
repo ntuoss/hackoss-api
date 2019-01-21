@@ -6,5 +6,10 @@ export const environment = {
         projectId: process.env.FIREBASE_PROJECT_ID,
         storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
         messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+    },
+    eventbrite: {
+        token: process.env.EVENTBRITE_TOKEN,
+        organizationId: process.env.EVENTBRITE_ORGANIZATION_ID,
+        organizerId: process.env.EVENTBRITE_ORGANIZER_ID
     }
 };

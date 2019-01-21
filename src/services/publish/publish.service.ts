@@ -2,6 +2,7 @@ import { EventsRepository } from "hackoss";
 import { er } from "../services";
 import { facebookService } from "../facebook/facebook.service";
 import { eventbriteService } from "../eventbrite/eventbrite.service";
+import { PlatformService } from "../platform/platform.service";
 
 const PLATFORM_SERVICES = {
     'facebook': facebookService,
@@ -18,14 +19,14 @@ export class PublishService {
             throw new Error(`Invalid platform ${platform}`);
         }
 
-        const platformService = PLATFORM_SERVICES[platform];
+        const platformService: PlatformService = PLATFORM_SERVICES[platform];
         const event = await this.eventsRepository.getEvent(eventId);
 
         if (!platformService.canPublish(event)) {
             throw new Error(`Cannot publish event ${eventId} to ${platform}`);
         }
 
-        await platformService.publish(event);
+        return platformService.publish(event);
     }
 
 }

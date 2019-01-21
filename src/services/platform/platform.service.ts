@@ -6,5 +6,5 @@ export abstract class PlatformService {
         return event.status === 'live';
     };
 
-    abstract async publish(event: Event): Promise<boolean>;
+    abstract async publish(event: Event): Promise<void>;
 }
