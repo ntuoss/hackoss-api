@@ -20,13 +20,7 @@ export class PublishService {
         }
 
         const platformService: PlatformService = PLATFORM_SERVICES[platform];
-        const event = await this.eventsRepository.getEvent(eventId);
-
-        if (!platformService.canPublish(event)) {
-            throw new Error(`Cannot publish event ${eventId} to ${platform}`);
-        }
-
-        return platformService.publish(event);
+        return platformService.publish(eventId);
     }
 
 }

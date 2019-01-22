@@ -3,7 +3,7 @@ import { publishService } from '../services/publish/publish.service';
 
 const router = express.Router();
 
-router.post('/:platform', async (req, res) => {
+router.post('/:platform/event', async (req, res) => {
 
     const platform = req.params.platform;
     const eventId = req.body.eventId;
