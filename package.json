@@ -16,7 +16,7 @@
     "eventbrite": "^1.0.4",
     "express": "^4.16.4",
     "form-data": "^2.3.3",
-    "hackoss": "0.4.0",
+    "hackoss": "0.4.1",
     "lodash": "^4.17.11",
     "request": "^2.88.0"
   },
