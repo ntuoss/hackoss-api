@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/:eventId', async (req, res) => {
 
-    const eventId = req.body.eventId;
+    const eventId = req.params.eventId;
 
     try {
         await eventbriteService.createEvent(eventId);

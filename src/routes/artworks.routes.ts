@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/:artworkId', async (req, res) => {
 
-    const artworkId = req.body.artworkId;
+    const artworkId = req.params.artworkId;
 
     try {
         await eventbriteService.uploadMedia(artworkId);
