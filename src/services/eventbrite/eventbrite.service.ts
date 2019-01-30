@@ -179,6 +179,23 @@ export class EventbriteService extends PlatformService {
             throw new Error(`Event ${eventId} is already ${event.eventbrite.status} on EB`);
         }
 
+        const data = {
+            "ticket_class": {
+                "name": "First Class",
+                "quantity_total": 1000,
+                "free": true,
+                "cost": "SGD,0"
+            }
+        };
+
+        // create ticket for event
+        await this.eventbrite.request(`/events/${event.eventbrite.id}/ticket_classes/`, {
+            method: 'post',
+            body: JSON.stringify(data),
+        }).catch(err => {
+            throw new Error(`Failed to create ticket for ${event.eventbrite.id} on EB ${err}`);
+        })
+
         // publish event to eventbrite
         await this.eventbrite.request(`/events/${event.eventbrite.id}/publish`, {
             method: 'post'
