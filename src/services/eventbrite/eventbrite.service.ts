@@ -101,14 +101,7 @@ export class EventbriteService extends PlatformService {
                 address_1: location.addressLine1,
                 address_2: location.addressLine2,
                 city: EVENTBRITE_CITY,
-                country: EVENTBRITE_COUNTRY,
-                localized_address_display: `${location.addressLine1} ${location.addressLine2}, ${EVENTBRITE_CITY}`,
-                localized_area_display: EVENTBRITE_CITY,
-                localized_multi_line_address_display: [
-                    location.addressLine1,
-                    location.addressLine2,
-                    EVENTBRITE_CITY
-                ]
+                country: EVENTBRITE_COUNTRY
             },
             capacity: location.seatingCapacity
         };
