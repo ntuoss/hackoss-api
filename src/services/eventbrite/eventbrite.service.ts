@@ -114,7 +114,7 @@ export class EventbriteService extends PlatformService {
         };
 
         // create venue at eventbrite
-        const venue = await this.eventbrite.request(`/organizations/${environment.eventbrite.organizationId}/venues/Parameters/`, {
+        const venue = await this.eventbrite.request(`/organizations/${environment.eventbrite.organizationId}/venues/`, {
             method: 'post',
             body: JSON.stringify({ venue: data })
         }).then(res => res as EventbriteVenue).catch(err => {
