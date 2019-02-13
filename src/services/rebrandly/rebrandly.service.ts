@@ -27,7 +27,7 @@ export class RebrandlyService extends PlatformService{
         //should not throw error, as it was not a failure
         if(link.destination && link.destination.length !== 0){    
             const updateResult = await this.Rebrandly.links.update(
-                process.env.REBRANDLY_GITHUB_ID, 
+                process.env[`REBRANDLY_${link.type.toUpperCase()}_ID`], 
                 _.omit(link, 'type')
             );
             
