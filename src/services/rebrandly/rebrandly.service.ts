@@ -1,11 +1,9 @@
-declare var rebrandly:any;
 import { er } from "../services";
 import { EventsRepository } from "hackoss";
-import * as request from "request";
 import { PlatformService } from "../platform/platform.service";
 import * as Rebrandly from "rebrandly";
-import { LINK_TYPE, RebrandlyLink } from "./link.rebrandly";
-import _ = require("lodash");
+import { RebrandlyLink } from "./link.rebrandly";
+import * as _ from 'lodash';
 export class RebrandlyService extends PlatformService{
     private Rebrandly:any;
     constructor(private eventsRepository:EventsRepository){
