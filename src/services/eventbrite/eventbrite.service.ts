@@ -3,11 +3,11 @@ import { ArtworksRepository, EventsRepository, LocationsRepository, Event } from
 import { Sdk as Eventbrite } from "eventbrite/lib/types";
 import eb from 'eventbrite';
 import { environment } from "../../environments/environment";
-import { EventbriteEvent, EventbriteTime, EventbriteString } from "./eventbrite-event";
+import { EventbriteEvent, EventbriteTime, EventbriteString } from "./event.eventbrite";
 import * as request from 'request';
 import * as _ from 'lodash';
 import { ar, er, lr } from "../services";
-import { EventbriteVenue } from "./eventbrite-venue";
+import { EventbriteVenue } from "./venue.eventbrite";
 import { EventbriteTicket } from "./ticket.eventbrite";
 
 const EVENTBRITE_TIMEZONE: string = 'Asia/Singapore';
