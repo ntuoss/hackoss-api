@@ -1,5 +1,5 @@
 import { PlatformService } from "../platform/platform.service";
-import { ArtworksRepository, EventsRepository, LocationsRepository } from "hackoss";
+import { ArtworksRepository, EventsRepository, LocationsRepository, Event } from "hackoss";
 import { Sdk as Eventbrite } from "eventbrite/lib/types";
 import eb from 'eventbrite';
 import { environment } from "../../environments/environment";
@@ -8,6 +8,7 @@ import * as request from 'request';
 import * as _ from 'lodash';
 import { ar, er, lr } from "../services";
 import { EventbriteVenue } from "./eventbrite-venue";
+import { EventbriteTicket } from "./ticket.eventbrite";
 
 const EVENTBRITE_TIMEZONE: string = 'Asia/Singapore';
 const EVENTBRITE_CURRENCY: string = 'SGD';
@@ -15,6 +16,7 @@ const EVENTBRITE_FORMAT_ID: string = '9';
 const EVENTBRITE_CATEGORY_ID: string = '102';
 const EVENTBRITE_CITY: string = 'Singapore';
 const EVENTBRITE_COUNTRY: string = 'SG';
+const EVENTBRITE_TICKET_NAME: string = 'General Admission';
 
 export class EventbriteService extends PlatformService {
 
@@ -167,6 +169,24 @@ export class EventbriteService extends PlatformService {
 
     }
 
+    private async createTicket(event: Event) {
+
+        const data: EventbriteTicket = {
+            name: EVENTBRITE_TICKET_NAME,
+            quantity_total: event.venue.seatingCapacity,
+            free: true,
+            cost: "SGD,0"
+        };
+
+        // create ticket for event
+        await this.eventbrite.request(`/events/${event.eventbrite.id}/ticket_classes/`, {
+            method: 'post',
+            body: JSON.stringify({ ticket_class: data }),
+        }).catch(err => {
+            throw new Error(`Failed to create ticket for ${event.eventbrite.id} on EB ${err}`);
+        })
+    }
+
     async publish(eventId: string) {
 
         const event = await this.eventsRepository.getEvent(eventId);
@@ -179,22 +199,8 @@ export class EventbriteService extends PlatformService {
             throw new Error(`Event ${eventId} is already ${event.eventbrite.status} on EB`);
         }
 
-        const data = {
-            "ticket_class": {
-                "name": "First Class",
-                "quantity_total": 1000,
-                "free": true,
-                "cost": "SGD,0"
-            }
-        };
-
-        // create ticket for event
-        await this.eventbrite.request(`/events/${event.eventbrite.id}/ticket_classes/`, {
-            method: 'post',
-            body: JSON.stringify(data),
-        }).catch(err => {
-            throw new Error(`Failed to create ticket for ${event.eventbrite.id} on EB ${err}`);
-        })
+        // create ticket for this event
+        await this.createTicket(event);
 
         // publish event to eventbrite
         await this.eventbrite.request(`/events/${event.eventbrite.id}/publish`, {
