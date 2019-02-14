@@ -11,5 +11,15 @@ export const environment = {
         token: process.env.EVENTBRITE_TOKEN,
         organizationId: process.env.EVENTBRITE_ORGANIZATION_ID,
         organizerId: process.env.EVENTBRITE_ORGANIZER_ID
+    },
+    rebrandly: {
+        apiUrl: process.env.REBRANDLY_API_URL,
+        apiKey: process.env.REBRANDLY_API_KEY,
+        domainId: process.env.REBRANDLY_DOMAIN_ID,
+        links: {
+            workshop: process.env.REBRANDLY_WORKSHOP_LINK_ID,
+            live: process.env.REBRANDLY_LIVE_LINK_ID,
+            feedback: process.env.REBRANDLY_FEEDBACK_LINK_ID
+        }
     }
 };
