@@ -1,6 +1,16 @@
-export type LINK_TYPE = 'ask' | 'content' | 'feedback' 
-export class RebrandlyLink{
-    title: string
-    destination: string
-    type: LINK_TYPE
+export class RebrandlyLink {
+    id: string;
+    title: string;
+    slashtag: string;
+    destination: string;
+    createdAt: string;
+    updatedAt: string;
+    shortUrl: string;
+    domain: RebrandlyDomain;
+}
+
+export class RebrandlyDomain {
+    id: string;
+    ref: string;
+    fullName: string;
 }

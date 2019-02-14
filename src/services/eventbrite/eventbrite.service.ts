@@ -1,14 +1,14 @@
 import { PlatformService } from "../platform/platform.service";
 import { ArtworksRepository, EventsRepository, LocationsRepository, Event } from "hackoss";
 import { Sdk as Eventbrite } from "eventbrite/lib/types";
-import eb from 'eventbrite';
 import { environment } from "../../environments/environment";
 import { EventbriteEvent, EventbriteTime, EventbriteString } from "./event.eventbrite";
-import * as request from 'request';
-import * as _ from 'lodash';
 import { ar, er, lr } from "../services";
 import { EventbriteVenue } from "./venue.eventbrite";
 import { EventbriteTicket } from "./ticket.eventbrite";
+import eb from 'eventbrite';
+import * as request from 'request';
+import * as _ from 'lodash';
 
 const EVENTBRITE_TIMEZONE: string = 'Asia/Singapore';
 const EVENTBRITE_CURRENCY: string = 'SGD';
