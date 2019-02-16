@@ -9,8 +9,6 @@ const PLATFORM_SERVICES = {
 
 export class PublishService {
 
-    constructor() { }
-
     async publish(eventId: string, platform: Platform) {
 
         if (!(platform in PLATFORM_SERVICES)) {
